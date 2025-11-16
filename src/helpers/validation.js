@@ -13,4 +13,12 @@ function validateSingupData(req) {
 };
 
 
-module.exports = { validateSingupData };
+function validateuserdata(req) {
+  const allowedUpdates = ["firstName", "lastName", "gender","about"];
+
+  const isallowed =Object.keys(req.body).every(fields=> allowedUpdates.includes(fields));
+  
+  return isallowed;
+}
+
+module.exports = { validateSingupData, validateuserdata };
